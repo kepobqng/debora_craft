@@ -23,9 +23,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions): void {
         // Log errors to stderr for Vercel
         $exceptions->render(function (Throwable $e, $request) {
-            if (app()->environment('production')) {
-                error_log($e->getMessage());
-                error_log($e->getTraceAsString());
-            }
+            error_log($e->getMessage());
+            error_log($e->getTraceAsString());
         });
     })->create();
