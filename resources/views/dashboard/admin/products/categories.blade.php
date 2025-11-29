@@ -66,7 +66,7 @@
                     <div class="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
                         <div>
                             <h3 class="text-lg font-semibold text-black">Daftar Kategori</h3>
-                            <p class="text-sm text-gray-500">Total {{ $stats['total'] }} kategori</p>
+                            <p class="text-sm text-gray-500">Total {{ $categories->count() }} kategori</p>
                         </div>
                     </div>
                     <div class="overflow-x-auto">
@@ -126,9 +126,6 @@
                                 @endforelse
                             </tbody>
                         </table>
-                        <div class="px-6 py-4 border-t border-gray-200">
-                            {{ $categories->links() }}
-                        </div>
                     </div>
                 </div>
 
