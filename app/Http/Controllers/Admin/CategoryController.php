@@ -13,21 +13,23 @@ class CategoryController extends Controller
     {
         $categories = Category::withCount('products')
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->paginate(10);
 
         $editingCategory = null;
         if ($request->filled('edit')) {
             $editingCategory = Category::find($request->input('edit'));
         }
 
-        // Calculate stats
+        // Calculate stats (based on full dataset, not current page)
+        $totalCategories = Category::count();
+        $activeCategories = Category::where('is_active', true)->count();
         $stats = [
-            'total' => $categories->count(),
-            'active' => $categories->where('is_active', true)->count(),
-            'active_percentage' => $categories->count() > 0 
-                ? round(($categories->where('is_active', true)->count() / $categories->count()) * 100) 
+            'total' => $totalCategories,
+            'active' => $activeCategories,
+            'active_percentage' => $totalCategories > 0
+                ? round(($activeCategories / $totalCategories) * 100)
                 : 0,
-            'total_products' => $categories->sum('products_count'),
+            'total_products' => Category::withCount('products')->get()->sum('products_count'),
         ];
 
         return view('dashboard.admin.products.categories', compact('categories', 'editingCategory', 'stats'));

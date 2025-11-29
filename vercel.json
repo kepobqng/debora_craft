@@ -1,62 +1,59 @@
 {
-    "version": 2,
-    "framework": null,
-    "functions": {
-        "api/index.php": {
-            "runtime": "vercel-php@0.6.0",
-            "memory": 1024,
-            "maxDuration": 30
-        }
-    },
-    "routes": [
-        {
-            "src": "/build/(.*)",
-            "dest": "/public/build/$1"
-        },
-        {
-            "src": "/img/(.*)",
-            "dest": "/public/img/$1"
-        },
-        {
-            "src": "/fonts/(.*)",
-            "dest": "/public/fonts/$1"
-        },
-        {
-            "src": "/favicon.ico",
-            "dest": "/public/favicon.ico"
-        },
-        {
-            "src": "/robots.txt",
-            "dest": "/public/robots.txt"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/api/index.php"
-        }
-    ],
-    "buildCommand": "composer install --no-dev --optimize-autoloader && npm run build",
-    "outputDirectory": "public",
-    "installCommand": "composer install --no-dev --optimize-autoloader && npm install",
+  "version": 2,
+  "framework": null,
+  "functions": {
+      "api/index.php": { 
+          "runtime": "vercel-php@0.7.4"
+      }
+  },
+  "routes": [
+      {
+          "src": "/build/(.*)",
+          "dest": "/public/build/$1"
+      },
+      {
+          "src": "/img/(.*)",
+          "dest": "/public/img/$1"
+      },
+      {
+          "src": "/fonts/(.*\\.(ttf|otf|woff|woff2|eot))",
+          "dest": "/public/fonts/$1",
+          "headers": {
+              "Cache-Control": "public, max-age=31536000, immutable",
+              "Access-Control-Allow-Origin": "*"
+          }
+      },
+      {
+          "src": "/favicon.ico",
+          "dest": "/public/favicon.ico"
+      },
+      {
+          "src": "/robots.txt",
+          "dest": "/public/robots.txt"
+      },
+      {
+          "src": "/(.*)",
+          "dest": "/api/index.php"
+      }
+  ],
+  "public": true,
+  "buildCommand": "vite build",
+  "outputDirectory": "public",
     "env": {
         "APP_ENV": "production",
-        "APP_DEBUG": "false",
-        "APP_URL": "@APP_URL",
-        "APP_KEY": "@APP_KEY",
-        "APP_CONFIG_CACHE": "/tmp/config.php",
-        "APP_EVENTS_CACHE": "/tmp/events.php",
-        "APP_PACKAGES_CACHE": "/tmp/packages.php",
-        "APP_ROUTES_CACHE": "/tmp/routes.php",
-        "APP_SERVICES_CACHE": "/tmp/services.php",
+          "APP_DEBUG": "true",
+    "APP_URL": "https://debora-craft-hazel.vercel.app",
+    "APP_KEY": "base64:2fCkqCuYkowp6SEaqSeyP07ykPtWOmFKEZA1ATn8SxQ=",
         "VIEW_COMPILED_PATH": "/tmp",
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie",
-        "SESSION_LIFETIME": "120",
-        "DB_CONNECTION": "@DB_CONNECTION",
-        "DB_HOST": "@DB_HOST",
-        "DB_PORT": "@DB_PORT",
-        "DB_DATABASE": "@DB_DATABASE",
-        "DB_USERNAME": "@DB_USERNAME",
-        "DB_PASSWORD": "@DB_PASSWORD"
+    "SESSION_LIFETIME": "120",
+        "DB_CONNECTION": "mysql",
+    "DB_HOST": "kjgtj3.h.filess.io", 
+    "DB_PORT": "3307", 
+    "DB_DATABASE": "Deboracraft_mirrorfed", 
+    "DB_USERNAME": "Deboracraft_mirrorfed",
+    "DB_PASSWORD": "0a3ee07f8a0d3601e798b1fa12f2d7cb3f889daf"  
     }
 }

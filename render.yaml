@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: debora-craft
+    env: php
+    plan: starter
+    region: singapore
+    buildCommand: composer install --no-dev --optimize-autoloader && npm install && npm run build
+    buildCommand: composer install --no-dev --optimize-autoloader && npm install && npm run build
+    startCommand: php artisan serve --host=0.0.0.0 --port=$PORT
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_KEY
+        value: base64:2fCkqCuYkowp6SEaqSeyP07ykPtWOmFKEZA1ATn8SxQ=
+      - key: DB_CONNECTION
+        value: mysql
+      - key: DB_HOST
+        value: kjgtj3.h.filess.io
+      - key: DB_PORT
+        value: 3307
+      - key: DB_DATABASE
+        value: Deboracraft_mirrorfed
+      - key: DB_USERNAME
+        value: Deboracraft_mirrorfed
+      - key: DB_PASSWORD
+        value: 0a3ee07f8a0d3601e798b1fa12f2d7cb3f889daf
+

@@ -49,7 +49,7 @@ class PromoController extends Controller
         // Generate code if not provided
         if (empty($validated['code'])) {
             $validated['code'] = strtoupper(Str::random(8));
-        }
+    }
 
         // Ensure at least one of product_id or category_id is set
         if (empty($validated['product_id']) && empty($validated['category_id'])) {

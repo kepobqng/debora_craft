@@ -134,7 +134,7 @@
                                         <input type="file" name="images[]" id="image_1" accept="image/*" class="hidden" onchange="previewImage(this, 1)">
                                         <p class="text-xs text-gray-500 mt-1">Foto Utama</p>
                                         <p class="text-xs text-gray-400 mt-1">Klik untuk upload</p>
-                                    </div>
+                                </div>
                                 </label>
                                 @if(isset($existingImages[0]) && !empty($existingImages[0]))
                                     <button type="button" id="remove_1" onclick="removeImage(1)" class="absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600">×</button>
@@ -158,7 +158,7 @@
                                         <input type="file" name="images[]" id="image_2" accept="image/*" class="hidden" onchange="previewImage(this, 2)">
                                         <p class="text-xs text-gray-500 mt-1">Foto 2</p>
                                         <p class="text-xs text-gray-400 mt-1">Klik untuk upload</p>
-                                    </div>
+                                </div>
                                 </label>
                                 @if(isset($existingImages[1]) && !empty($existingImages[1]))
                                     <button type="button" id="remove_2" onclick="removeImage(2)" class="absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600">×</button>
@@ -178,9 +178,9 @@
                                                 <span id="icon_3" class="text-gray-400 text-4xl">📷</span>
                                                 <img id="img_3" src="" alt="Preview" class="hidden w-full h-full object-cover">
                                             @endif
-                                        </div>
+                                </div>
                                         <input type="file" name="images[]" id="image_3" accept="image/*" class="hidden" onchange="previewImage(this, 3)">
-                                        <p class="text-xs text-gray-500 mt-1">Foto 3</p>
+                                <p class="text-xs text-gray-500 mt-1">Foto 3</p>
                                         <p class="text-xs text-gray-400 mt-1">Klik untuk upload</p>
                                     </div>
                                 </label>
@@ -202,9 +202,9 @@
                                                 <span id="icon_4" class="text-gray-400 text-4xl">📷</span>
                                                 <img id="img_4" src="" alt="Preview" class="hidden w-full h-full object-cover">
                                             @endif
-                                        </div>
+                                </div>
                                         <input type="file" name="images[]" id="image_4" accept="image/*" class="hidden" onchange="previewImage(this, 4)">
-                                        <p class="text-xs text-gray-500 mt-1">Foto 4</p>
+                                <p class="text-xs text-gray-500 mt-1">Foto 4</p>
                                         <p class="text-xs text-gray-400 mt-1">Klik untuk upload</p>
                                     </div>
                                 </label>
